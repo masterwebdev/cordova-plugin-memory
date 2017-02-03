@@ -5,14 +5,14 @@
 - (void)getmemory:(CDVInvokedUrlCommand*)command
 {
 
-    #NSString* name = [[command arguments] objectAtIndex:0];
-    #NSString* msg = [NSString stringWithFormat: @"Hello, %@", name];
+    //NSString* name = [[command arguments] objectAtIndex:0];
+    //NSString* msg = [NSString stringWithFormat: @"Hello, %@", name];
 
-    #CDVPluginResult* result = [CDVPluginResult
-    #                           resultWithStatus:CDVCommandStatus_OK
-    #                           messageAsString:msg];
+    //CDVPluginResult* result = [CDVPluginResult
+    //                           resultWithStatus:CDVCommandStatus_OK
+    //                           messageAsString:msg];
 
-    #[self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+    //[self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
     
     vm_statistics_data_t vmStats;
     mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
