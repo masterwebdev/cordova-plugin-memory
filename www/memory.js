@@ -1,3 +1,4 @@
+cordova.define("com.autoitalsinc.memory.memory", function(require, exports, module) {
 /*global cordova, module*/
 
 module.exports = {
@@ -5,3 +6,5 @@ module.exports = {
         cordova.exec(successCallback, errorCallback, "Memory", "getmemory", [name]);
     }
 };
+
+});

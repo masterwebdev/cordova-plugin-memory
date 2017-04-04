@@ -35,6 +35,8 @@
     int speculative_countPages    = vmStats.speculative_count;
     int speculative_countMemory = (int)speculative_countPages*vm_page_size/1024./1024.;
     
+    int total = (int) [NSProcessInfo processInfo].physicalMemory /1024. /1024.;
+    
     
     /*NSLog(@"AV: %f", availableMemory);
     NSLog(@"AC: %f", activeMemory);
@@ -71,7 +73,7 @@
     NSLog(@"TO: %f", mem_total/1024./1024.);*/
     
     
-    NSString* res = [NSString stringWithFormat: @"%u|%u|%u|%u|%u|%u|%u|%u|%u|%u|%u", availableMemory, activeMemory, inactiveMemory, wireMemory, pageoutsMemory, hitsMemory, purgeable_countMemory, speculative_countMemory, mem_used, mem_free, mem_total];
+    NSString* res = [NSString stringWithFormat: @"%u|%u|%u|%u|%u|%u|%u|%u|%u|%u|%u|%u", availableMemory, activeMemory, inactiveMemory, wireMemory, pageoutsMemory, hitsMemory, purgeable_countMemory, speculative_countMemory, mem_used, mem_free, mem_total, total];
 
     CDVPluginResult* result = [CDVPluginResult
                                resultWithStatus:CDVCommandStatus_OK
@@ -83,3 +85,4 @@
 }
 
 @end
+
