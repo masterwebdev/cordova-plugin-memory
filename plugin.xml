@@ -18,6 +18,7 @@
     <config-file target="config.xml" parent="/widget">
       <feature name="Memory">
         <param name="ios-package" value="AVMemory" />
+        <param name="onload" value="true"/>
       </feature>
     </config-file>
 
