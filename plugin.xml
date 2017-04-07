@@ -9,8 +9,6 @@
     <engine name="cordova" version=">=3.4.0"/>
   </engines>
 
-  <asset src="www/memory.js" target="js/memory.js"/>
-
   <js-module src="www/memory.js" name="memory">
     <clobbers target="memory" />
   </js-module>
