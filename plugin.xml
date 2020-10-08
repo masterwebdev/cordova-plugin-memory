@@ -25,5 +25,16 @@
     <header-file src="src/ios/AVMemory.h" target-dir="MemoryPlugin"/>
     <source-file src="src/ios/AVMemory.m" target-dir="MemoryPlugin"/>
   </platform>
+  
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="Memory">
+				<param name="android-package" value="com.autovitalsinc.memory.Memory" />
+				<param name="onload" value="true" />
+			</feature>
+		</config-file>
+
+		<source-file src="src/android/Memory.java" target-dir="src/com/autovitalsinc/memory/" />
+	</platform>
 
 </plugin>

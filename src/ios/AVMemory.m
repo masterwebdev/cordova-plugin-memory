@@ -37,7 +37,6 @@
     
     int total = (int) [NSProcessInfo processInfo].physicalMemory /1024. /1024.;
     
-    
     /*NSLog(@"AV: %f", availableMemory);
     NSLog(@"AC: %f", activeMemory);
     NSLog(@"IN: %f", inactiveMemory);
@@ -72,7 +71,6 @@
     NSLog(@"FR: %f", mem_free/1024./1024.);
     NSLog(@"TO: %f", mem_total/1024./1024.);*/
     
-    
     NSString* res = [NSString stringWithFormat: @"%u|%u|%u|%u|%u|%u|%u|%u|%u|%u|%u|%u", availableMemory, activeMemory, inactiveMemory, wireMemory, pageoutsMemory, hitsMemory, purgeable_countMemory, speculative_countMemory, mem_used, mem_free, mem_total, total];
 
     CDVPluginResult* result = [CDVPluginResult
@@ -81,7 +79,21 @@
 
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
     
-    
+}
+
+- (void)isMemorySafe:(CDVInvokedUrlCommand*)command
+{
+    // no need to check memory usage on iOS
+    // onMemoryWarning will be triggered when iOS determines app is getting close to memory limit
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:false];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
+- (void)onMemoryWarning
+{
+    NSString *jsCommand = @"cordova.fireDocumentEvent('memorywarning');";
+    [self.commandDelegate evalJs:jsCommand];
+    NSLog(@"received a memory warning");
 }
 
 @end
